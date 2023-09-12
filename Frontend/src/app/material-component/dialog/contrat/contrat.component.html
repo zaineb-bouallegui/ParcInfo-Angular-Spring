@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span >{{dialogData.action}} Contrat</span>
+        <span class="spacer"></span>
+        <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="contratForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="standard" fxFlex>
+                    <mat-label>Nom de Societe</mat-label>
+                    <input matInput formControlName="nomSociete" required>
+                    <mat-error *ngIf="contratForm.controls.nomSociete.touched && contratForm.controls.nomSociete.invalid">
+                        <span *ngIf="contratForm.controls.nomSociete.errors.required">this field is mandatory</span>
+                        <span *ngIf="contratForm.controls.nomSociete.errors.pattern">this field is invalid</span>
+
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="standard" fxFlex>
+                    <mat-label>Date de Debut</mat-label>
+                    <input matInput formControlName="dateDebut" required>
+                    <mat-error *ngIf="contratForm.controls.dateDebut.touched && contratForm.controls.nomSociete.invalid">
+                        <span *ngIf="contratForm.controls.dateDebut.errors.required">this field is mandatory</span>
+                        <span *ngIf="contratForm.controls.dateDebut.errors.pattern">this field is invalid</span>
+
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="standard" fxFlex>
+                    <mat-label>Date de Fin</mat-label>
+                    <input matInput formControlName="dateFin" required>
+                    <mat-error *ngIf="contratForm.controls.dateFin.touched && contratForm.controls.nomSociete.invalid">
+                        <span *ngIf="contratForm.controls.dateFin.errors.required">this field is mandatory</span>
+                        <span *ngIf="contratForm.controls.dateFin.errors.pattern">this field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-botton color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(contratForm.valid && contratForm.dirty)" >
+        <mat-icon>Save</mat-icon> {{action}}
+    </button>
+    <button mat-raised-button color="warn" mat-dialog-close>
+        <mat-icon>Cancel</mat-icon>
+close
+    </button>
+</mat-dialog-actions>
