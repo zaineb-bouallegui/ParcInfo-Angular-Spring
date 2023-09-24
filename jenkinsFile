@@ -7,7 +7,7 @@ pipeline {
                 // Étape pour récupérer le code source du référentiel Git
                 script {
                     git branch: 'main', // Branche Git à vérifier
-                        url: 'https://github.com/zaineb-bouallegui/Sehaty.git' // URL du référentiel Git
+                        url: 'https://github.com/zaineb-bouallegui/ParcInfo-Angular-Spring' // URL du référentiel Git
                 }
             }
         }
